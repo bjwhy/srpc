@@ -17,6 +17,8 @@
 
 	<bean id="server" class="com.why.srpc.tcp.NettyServerWithoutZk" />
 
+	<bean id="serverZk" class="com.why.srpc.tcp.NettyServer" />
+
 	<bean id="client" class="com.why.srpc.registry.NameDiscover" />
 
 </beans>

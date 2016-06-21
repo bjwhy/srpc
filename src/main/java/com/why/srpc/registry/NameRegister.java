@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.why.srpc.config.ZkConfig;
+import com.why.srpc.utils.NetUtils;
 
 @Component
 public class NameRegister {
@@ -41,7 +42,7 @@ public class NameRegister {
 		String regisInfo = config.getRegister();
 		String[] nodes = regisInfo.split(" ");
 		createNodePersistent(nodes[0]);
-		createNodeEphemeral(nodes[0] + "/" + nodes[1]);
+		createNodeEphemeral(nodes[0] + "/" + NetUtils.getLocalAddress().getHostAddress() + ":" + nodes[1]);
 	}
 
 	private void createNodePersistent(String nodeName) throws Exception {

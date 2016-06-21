@@ -3,7 +3,7 @@ package com.why.srpc.boot;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
-import com.why.srpc.tcp.NettyServerWithoutZk;
+import com.why.srpc.tcp.NettyServer;
 
 public class Smain {
 	public static void main(String[] args) throws Exception {
@@ -21,7 +21,7 @@ public class Smain {
 
 		ApplicationContext ctx = new FileSystemXmlApplicationContext("config/applicationContext.xml");
 
-		NettyServerWithoutZk server = (NettyServerWithoutZk) ctx.getBean("server");
+		NettyServer server = (NettyServer) ctx.getBean("serverZk");
 		server.serve();
 	}
 }

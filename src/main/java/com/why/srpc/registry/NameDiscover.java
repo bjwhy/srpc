@@ -68,7 +68,8 @@ public class NameDiscover {
 
 				for (String ip : ips) {
 					NettyClient ncli = new NettyClient();
-					ncli.tcpConnect(ip, 9999);
+					String[] info = ip.split(":");
+					ncli.tcpConnect(info[0], Integer.valueOf(info[1]));
 					servers.get(nodeName).add(ncli);
 				}
 			}
